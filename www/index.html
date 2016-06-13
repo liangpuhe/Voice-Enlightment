@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Hello World</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="js/jquery.mobile-1.4.5.min.css" />
+
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script>
+    $(document).bind('mobileinit',function(){
+        $.mobile.pushStateEnabled = false;
+    });
+	</script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+  <script type="text/javascript">
+  $(function(){
+    // Bind the swipeHandler callback function to the swipe event on div.box
+    $( ".swiper" ).on( "swipeleft", swipeLeftHandler );
+    $( ".swiper" ).on( "swiperight", swipeRightHandler );
+    $('.help').bind( "tap", function( event ) {
+      $( event.target ).hide();
+    });
+    // Callback function references the event target and adds the 'swipe' class to it
+    function swipeRightHandler( event ){
+      var page = $.mobile.activePage.attr( "id" );
+      if ( page === "thing"){
+        $.mobile.changePage("#thing-2", { transition: "slide", reverse: true, allowSamePageTransition: true, changeHash: true });
+      }
+      else if ( page === "thing-2" ){
+        $.mobile.changePage("#record", { transition: "slide", reverse: true, allowSamePageTransition: true, changeHash: true });
+      }
+      else if ( page === "record" ){
+        $.mobile.changePage("#thing-3", { transition: "slide", reverse: true, allowSamePageTransition: true, changeHash: true });
+      }
+      else if ( page === "thing-3" ){
+        $.mobile.changePage("#thing", { transition: "slide", reverse: true, allowSamePageTransition: true, changeHash: true });
+      }
+      else if ( page === "time-1"){
+        $.mobile.changePage("#time-4", { transition: "slide", reverse: true, allowSamePageTransition: true, changeHash: true });
+      }
+      else if ( page === "time-4" ){
+        $.mobile.changePage("#time-3", { transition: "slide", reverse: true, allowSamePageTransition: true, changeHash: true });
+      }
+      else if ( page === "time-3" ){
+        $.mobile.changePage("#time-2", { transition: "slide", reverse: true, allowSamePageTransition: true, changeHash: true });
+      }
+      else if ( page === "time-2" ){
+        $.mobile.changePage("#time-1", { transition: "slide", reverse: true, allowSamePageTransition: true, changeHash: true });
+      }
+    }
+    function swipeLeftHandler( event ){
+      var page = $.mobile.activePage.attr( "id" );
+      if ( page === "thing"){
+        $.mobile.changePage("#thing-3", { transition: "slide", allowSamePageTransition: true, changeHash: true });
+      }
+      else if ( page === "thing-2" ){
+        $.mobile.changePage("#thing", { transition: "slide", allowSamePageTransition: true, changeHash: true });
+      }
+      else if ( page === "record" ){
+        $.mobile.changePage("#thing-2", { transition: "slide", allowSamePageTransition: true, changeHash: true });
+      }
+      else if ( page === "thing-3" ){
+        $.mobile.changePage("#record", { transition: "slide", allowSamePageTransition: true, changeHash: true });
+      }
+      else if ( page === "time-1"){
+        $.mobile.changePage("#time-2", { transition: "slide", allowSamePageTransition: true, changeHash: true });
+      }
+      else if ( page === "time-2" ){
+        $.mobile.changePage("#time-3", { transition: "slide", allowSamePageTransition: true, changeHash: true });
+      }
+      else if ( page === "time-3" ){
+        $.mobile.changePage("#time-4", { transition: "slide", allowSamePageTransition: true, changeHash: true });
+      }
+      else if ( page === "time-4" ){
+        $.mobile.changePage("#time-1", { transition: "slide", allowSamePageTransition: true, changeHash: true });
+      }
+    }
+    function tapHandler( event ){
+      $.mobile.changePage("#mammal", { transition: "slide", changeHash: false });
+    }
+  });
+</script>
+</head>
+<body>
+<!-- Start of home page -->
+  <div data-role="page" id="homepage">
+
+
+		<a><img src="img/homepage.png"  ismap="ismap" usemap="#map" style = "width: 100%; height : 100% "></a>
+
+		<map name="map">
+			<area coords="0,100,200,300" href="#thing">
+			<area coords="250,100,450,300" href="#time-1">
+			<area coords="0,50,49,99" href="http://demos.jquerymobile.com/1.4.5/transitions/">
+			<area coords="50,50,99,99" href="http://demos.jquerymobile.com/1.4.5/transitions/">
+
+		</map>
+
+
+  </div><!-- /page -->
+
+<!-- Start of thing page -->
+<div data-role="page" class="swiper" id="thing">
+  <a href="#mammal"><img src="img/thingHome.png" style = "width: 100%; height : 100% "></a>
+  <div><a href="#homepage" class="homeButton" data-role="button" data-inline="true" style="background: #31E8B3; color: white">m</a>
+  <a href="#homepage" class="homeButton ui-state-disabled" data-role="button" data-inline="true" style="background: #F7B233; color: white">r</a>
+  </div>
+</div>
+<!-- /page -->
+
+<!-- Start of thing page -->
+<div data-role="page" class="swiper" id="thing-2">
+  <div><a href="#homepage" class="homeButton" data-role="button" data-inline="true" style="background: #31E8B3; color: white">m</a>
+  <a href="#homepage" class="homeButton ui-state-disabled" data-role="button" data-inline="true" style="background: #F7B233; color: white">r</a>
+  </div>
+</div>
+<!-- /page -->
+
+<!-- Start of mammal animal page -->
+<div data-role="page" class="swiper" id="record">
+	<a href="#record-home"><img src="img/record.png" style = "width: 100%; height : 100% "></a>
+  <div>
+    <a href="#homepage" class="homeButton" data-role="button" data-inline="true" style="background: #31E8B3; color: white">m</a>
+    <a href="#homepage" class="homeButton ui-state-disabled" data-role="button" data-inline="true" style="background: #F7B233; color: white">r</a>
+  </div>
+</div><!-- /page -->
+
+<!-- Start of thing page -->
+<div data-role="page" class="swiper" id="thing-3">
+  <div>
+    <a href="#homepage" class="homeButton" data-role="button" data-inline="true" style="background: #31E8B3; color: white">m</a>
+    <a href="#homepage" class="homeButton ui-state-disabled" data-role="button" data-inline="true" style="background: #F7B233; color: white">r</a>
+  </div>
+</div>
+<!-- /page -->
+
+<!-- Start of thing page -->
+<div data-role="page" class="swiper" id="record-home">
+  <div>
+    <a href="#homepage" class="homeButton" data-role="button" data-inline="true" style="background: #31E8B3; color: white">m</a>
+    <a href="#homepage" class="homeButton ui-state-disabled" data-role="button" data-inline="true" style="background: #F7B233; color: white">r</a>
+  </div>
+  <img src="img/record-home.png" style = "width: 100%; height : 100% ">
+</div><!-- /page -->
+
+<!-- Start of mammal animal page -->
+<div data-role="page" id="mammal">
+  <img class="help help-init" src="img/help-thing.png" style = "width: 100%; height : 100% ">
+  <div>
+    <a href="#homepage" class="homeButton" data-role="button" data-inline="true" style="background: #31E8B3; color: white">m</a>
+    <a href="#thing" class="homeButton" data-role="button" data-inline="true" style="background: #F7B233; color: white">r</a>
+  </div>
+	<img src="img/cat-grey.png" style = "width: 100%; height : 100% ">
+
+</div><!-- /page -->
+
+
+<!-- Start of thing play page -->
+<div data-role="page" id="play-page">
+<input type="search" name="password" id="search" value="" placeholder="Cat...">
+<div class="ui-field-contain">
+    <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>Horizontal controlgroup, radio:</legend>
+        <input type="search" name="password" id="search" value="" placeholder="Cat...">
+        <input type="radio" name="radio-choice-h-1" id="radio-choice-h-1b" value="off">
+        <label for="radio-choice-h-1b">Two</label>
+        <input type="radio" name="radio-choice-h-1" id="radio-choice-h-1c" value="other">
+        <label for="radio-choice-h-1c">Three</label>
+    </fieldset>
+</div>
+</div><!-- /page -->
+
+<div data-role="page" class="swiper" id="time-1">
+  <a href="#spring-play"><img src="img/time-1.jpg" style = "width: 100%; height : 100% "></a>
+  <div><a href="#homepage" class="homeButton" data-role="button" data-inline="true" style="background: #31E8B3; color: white">m</a>
+  <a href="#homepage" class="homeButton ui-state-disabled" data-role="button" data-inline="true" style="background: #F7B233; color: white">r</a>
+  </div>
+</div>
+<!-- /page -->
+
+<!-- Start of thing page -->
+<div data-role="page" class="swiper" id="time-2">
+  <div><a href="#homepage" class="homeButton" data-role="button" data-inline="true" style="background: #31E8B3; color: white">m</a>
+  <a href="#homepage" class="homeButton ui-state-disabled" data-role="button" data-inline="true" style="background: #F7B233; color: white">r</a>
+  </div>
+</div>
+
+<div data-role="page" class="swiper" id="time-3">
+  <div><a href="#homepage" class="homeButton" data-role="button" data-inline="true" style="background: #31E8B3; color: white">m</a>
+  <a href="#homepage" class="homeButton ui-state-disabled" data-role="button" data-inline="true" style="background: #F7B233; color: white">r</a>
+  </div>
+</div>
+<!-- /page -->
+
+<!-- Start of thing page -->
+<div data-role="page" class="swiper" id="time-4">
+  <div><a href="#homepage" class="homeButton" data-role="button" data-inline="true" style="background: #31E8B3; color: white">m</a>
+  <a href="#homepage" class="homeButton ui-state-disabled" data-role="button" data-inline="true" style="background: #F7B233; color: white">r</a>
+  </div>
+</div>
+
+<!-- Start of thing page -->
+<div data-role="page" id="spring-play">
+  <a href="#spring"><img src="img/spring-play.jpg" style = "width: 100%; height : 100% "></a>
+</div>
+
+<!-- Start of thing page -->
+<div data-role="page" id="spring">
+  <div><a href="#homepage" class="homeButton" data-role="button" data-inline="true" style="background: #31E8B3; color: white">m</a>
+  <a href="#spring-play" class="homeButton" data-role="button" data-inline="true" style="background: #F7B233; color: white">r</a>
+  </div>
+  <img class="help help-init" src="img/help-time.jpg" style = "width: 100%; height : 100% ">
+</div>
+
+	<script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript">
+        app.initialize();
+  </script>
+</body>
+
+</html>
