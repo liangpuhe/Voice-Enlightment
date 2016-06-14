@@ -365,12 +365,44 @@
     $('#play-page').bind( "swipe", function( event ) {
       if(play === 1){
         $( event.target ).css({backgroundImage: "url(img/luyin2.jpg)"});
+        audio = document.getElementById('audio');
+        source = document.getElementById('oggSource');
+        window.setTimeout(function(){ tryListenA(); },10000);
+        source.src='audio/duck.mp3';
+        audio.load();
+//        audio.src = 'audio/swallow.mp3';
+        audio.loop = false;
+        audio.play();
       }else if (play === 2){
         $( event.target ).css({backgroundImage: "url(img/luyin3.jpg)"});
+        audio = document.getElementById('audio');
+        source = document.getElementById('oggSource');
+        window.setTimeout(function(){ tryListenA(); },10000);
+        source.src='audio/bee.mp3';
+        audio.load();
+//        audio.src = 'audio/swallow.mp3';
+        audio.loop = false;
+        audio.play();
       }else if(play === 3){
         $( event.target ).css({backgroundImage: "url(img/luyin4.jpg)"});
+        audio = document.getElementById('audio');
+        source = document.getElementById('oggSource');
+        window.setTimeout(function(){ tryListenA(); },10000);
+        source.src='audio/drop.wav';
+        audio.load();
+//        audio.src = 'audio/swallow.mp3';
+        audio.loop = false;
+        audio.play();
       }else if (play === 4){
         $( event.target ).css({backgroundImage: "url(img/luyin1.jpg)"});
+        audio = document.getElementById('audio');
+        source = document.getElementById('oggSource');
+        window.setTimeout(function(){ tryListenA(); },10000);
+        source.src='audio/cat.wav';
+        audio.load();
+//        audio.src = 'audio/swallow.mp3';
+        audio.loop = false;
+        audio.play();
         play = 0;
       }
         play++;
