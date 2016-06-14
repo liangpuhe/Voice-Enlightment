@@ -98,20 +98,24 @@ h1 {
 }
 
 #thing {
-  background-image:url(../img/thingHome.png);
+  background-image:url(../img/thingHome.jpg);
   background-size:100% 100%
 }
 
 #thing-2 {
-  background-image:url(../img/thingHome-2.png);
+  background-image:url(../img/thingHome-2.jpg);
   background-size:100% 100%
 }
 
 #thing-3 {
-  background-image:url(../img/thingHome-3.png);
+  background-image:url(../img/thingHome-3.jpg);
   background-size:100% 100%
 }
 
+#mammal {
+  background-image:url(../img/cat-grey.jpg);
+  background-size:100% 100%
+}
 #time-1 {
   background-image:url(../img/time-1.jpg);
   background-size:100% 100%
@@ -141,29 +145,51 @@ h1 {
   background-size:100% 100%
 }
 
-#play-page {
-  background-image:url(../img/play-page.png);
+#arctic {
+  background-image:url(../img/arctic-1.jpg);
   background-size:100% 100%
 }
 
+#cloud {
+  background-image:url(../img/cloud-1.jpg);
+  background-size:100% 100%
+}
+
+#play-page {
+  background-image:url(../img/luyin1.jpg);
+  background-size:100% 100%
+}
+.IMGwithButton img {
+    position: absolute;
+    z-index: 0 !important;
+}
+
+
+#audio {
+    display: none;
+}
 .help {
   z-index: 2 !important;
   position: absolute;
 }
+.refresh {
+  margin-left: -1px !important;
+}
 .homeButton {
-	-moz-border-radius:100%;
-	-webkit-border-radius:100%;
+  color: white !important;
   border:none !important;
-	border-radius:100% !important;
-  z-index: 1 !important;
-  width: 20px;
-  height: 25px;
+    border-radius:100% !important;
+  margin-top: 17px !important;
+  width: 18px;
+  height: 28px;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
 	font-family:Arial;
 	font-size:7px;
 	text-decoration:none;
+}
+.home {
+  margin-left: 28px !important;
 }
 .homeButton:active {
 	position:relative;
