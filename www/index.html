@@ -185,6 +185,9 @@
 <!-- Start of mammal animal page -->
 <div data-role="page" class="withSound" id="mammal">
   <img class="help help-init" src="img/help-thing.gif" style = "width: 100%; height : 100% ">
+  <audio id="audio-mammal" controls="controls">
+  <source id="oggSource" src="" type="audio/ogg"></source>
+</audio>
   <div><a href="#homepage" class="homeButton home" data-role="button" data-inline="true" style="background: #31E8B3; color: white"><i class="icon iconfont icon-zhuye"></i></a>
     <a href="#thing" class="homeButton refresh" data-role="button" data-inline="true" style="background: #F7B233; color: white"><i class="icon iconfont icon-shuaxin"></i></a>
   </div>
@@ -277,6 +280,9 @@
 <!-- Start of thing page -->
 <div data-role="page" class="withSound" id="arctic">
     <img class="help help-init" src="img/help-arctic.gif" style = "width: 100%; height : 100% ">
+    <audio id="audio-arctic" controls="controls">
+    <source id="oggSource" src="" type="audio/ogg"></source>
+</audio>
     <div><a href="#homepage" class="homeButton home" data-role="button" data-inline="true" style="background: #31E8B3; color: white"><i class="icon iconfont icon-zhuye"></i></a>
       <a href="#location" class="homeButton refresh" data-role="button" data-inline="true" style="background: #F7B233; color: white"><i class="icon iconfont icon-shuaxin"></i></a>
     </div>
@@ -286,6 +292,9 @@
 <!-- Start of thing page -->
 <div data-role="page" class="withSound" id="cloud">
     <img class="help help-init" src="img/help-cloud.gif" style = "width: 100%; height : 100% ">
+    <audio id="audio-cloud" controls="controls">
+    <source id="oggSource" src="" type="audio/ogg"></source>
+</audio>
     <div><a href="#homepage" class="homeButton home" data-role="button" data-inline="true" style="background: #31E8B3; color: white"><i class="icon iconfont icon-zhuye"></i></a>
       <a href="#weather" class="homeButton refresh" data-role="button" data-inline="true" style="background: #F7B233; color: white"><i class="icon iconfont icon-shuaxin"></i></a>
     </div>
@@ -317,7 +326,7 @@
     $('#mammal').bind( "swipe", function( event ) {
       if(mammal === 1){
         $( event.target ).css({backgroundImage: "url(img/cat-1.gif)"});
-        audio = document.getElementById('audio');
+        audio = document.getElementById('audio-mammal');
         source = document.getElementById('oggSource');
         source.src='audio/cat.wav';
         audio.load();
@@ -325,7 +334,7 @@
         audio.play();
       }else if (mammal === 2){
         $( event.target ).css({backgroundImage: "url(img/pig-2.gif)"});
-        audio = document.getElementById('audio');
+        audio = document.getElementById('audio-mammal');
         source = document.getElementById('oggSource');
         source.src='audio/pig.mp3';
         audio.load();
@@ -333,7 +342,7 @@
         audio.play();
       }else if(mammal === 3){
         $( event.target ).css({backgroundImage: "url(img/bear.gif)"});
-        audio = document.getElementById('audio');
+        audio = document.getElementById('audio-mammal');
         source = document.getElementById('oggSource');
         source.src='audio/bear.mp3';
         audio.load();
@@ -341,7 +350,7 @@
         audio.play();
       }else if (mammal === 4){
         $( event.target ).css({backgroundImage: "url(img/dog.gif)"});
-        audio = document.getElementById('audio');
+        audio = document.getElementById('audio-mammal');
         source = document.getElementById('oggSource');
         source.src='audio/dog.mp3';
         audio.load();
@@ -349,7 +358,7 @@
         audio.play();
       }else if (mammal === 5){
         $( event.target ).css({backgroundImage: "url(img/lion.gif)"});
-        audio = document.getElementById('audio');
+        audio = document.getElementById('audio-mammal');
         source = document.getElementById('oggSource');
         source.src='audio/lion.mp3'
         audio.load();
@@ -419,14 +428,14 @@
         $( event.target ).css({backgroundImage: "url(img/cloud-5.jpg)"});
       }else if (cloud === 5){
         $( event.target ).css({backgroundImage: "url(img/cloud-6.gif)"});
-        audio = document.getElementById('audio');
+        audio = document.getElementById('audio-cloud');
         source = document.getElementById('oggSource');
         source.src='audio/rain.mp3';
         audio.load();
         audio.loop = true;
         audio.play();
       }else if ( cloud === 6){
-        audio = document.getElementById('audio');
+        audio = document.getElementById('audio-cloud');
         audio.loop = false;
         $( event.target ).css({backgroundImage: "url(img/cloud-1.jpg)"});
         cloud = 0;
@@ -445,7 +454,7 @@
         $( event.target ).css({backgroundImage: "url(img/arctic-5.jpg)"});
       }else if (arctic === 5){
         $( event.target ).css({backgroundImage: "url(img/arctic-6.gif)"});
-        audio = document.getElementById('audio');
+        audio = document.getElementById('audio-arctic');
         source = document.getElementById('oggSource');
         window.setTimeout(function(){ tryListenA(); },10000);
         source.src='audio/beiji.mp3';
@@ -455,7 +464,7 @@
         audio.play();
       }else if (arctic === 6){
         $( event.target ).css({backgroundImage: "url(img/arctic.gif)"});
-        audio = document.getElementById('audio');
+        audio = document.getElementById('audio-arctic');
         source = document.getElementById('oggSource');
         source.src='audio/arctic.mp3';
         audio.load();
@@ -463,7 +472,7 @@
         audio.play();
       }else if (arctic === 7){
         $( event.target ).css({backgroundImage: "url(img/whale.gif)"});
-        audio = document.getElementById('audio');
+        audio = document.getElementById('audio-arctic');
         source = document.getElementById('oggSource');
         source.src='audio/whale.mp3';
         audio.load();
@@ -472,14 +481,14 @@
         audio.play();
       }else if (arctic === 8){
         $( event.target ).css({backgroundImage: "url(img/peiguin.gif)"});
-        audio = document.getElementById('audio');
+        audio = document.getElementById('audio-arctic');
         source = document.getElementById('oggSource');
         source.src='audio/peiguin.mp3';
         audio.load();
         audio.loop = true;
         audio.play();
       }else if (arctic === 9){
-        audio = document.getElementById('audio');
+        audio = document.getElementById('audio-arctic');
         audio.loop = false;
         $( event.target ).css({backgroundImage: "url(img/arctic-1.jpg)"});
           arctic = 0;
